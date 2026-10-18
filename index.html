@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Animation</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffc568;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Les deux traits blancs */
+.line {
+    width: 4px;
+    height: 120px;
+    background: white;
+    transform: scaleY(0);
+    animation: draw 1s ease forwards infinite;
+}
+
+/* Le trait de gauche */
+.left {
+    transform-origin: bottom;
+    animation-delay: 0s;
+}
+
+/* Le trait de droite */
+.right {
+    transform-origin: top;
+    animation-delay: 0.2s;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 48px;
+    font-weight: bold;
+    opacity: 0;
+    animation: appear 3s ease infinite;
+}
+
+.heart {
+    color: #ed304b;
+    animation: beat 0.8s ease-in-out infinite;
+}
+
+.letter {
+    color: #76266f;
+}
+
+@keyframes draw {
+    0%, 100% {
+        transform: scaleY(0);
+    }
+    20%, 75% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes appear {
+    0%, 25% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    40%, 75% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    90% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="line left"></div>
+
+        <div class="message">
+<span class="letter">I</span>
+            <span class="heart">♥</span>
+            <span class="letter">U</span>
+        </div>
+
+        <div class="line right"></div>
+    </div>
+</body>
+</html>
